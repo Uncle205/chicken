@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    //1. Создать на странице <select> со значениями 100х100, 200х200, 500х500
+    //Создать <img> c любой картинкой.
+    //При выборе из списка значения, выставлять соответствующий размеры картинки (высота*ширина)
+    //Использовать jquery!!! Можно использовать animate http://api.jquery.com/animate/
+    //
+    $(document).ready(function(){
+      parentBody = document.body;
+      select = document.createElement('select');
+      select.setAttribute('id', 'selectSize');
+
+      img = document.createElement('img');
+      img.setAttribute('src','https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(145).jpg');
+      img.setAttribute('id','image');
+      parentBody.appendChild(select);
+      <!-- parentBody.appendChild(img); -->
+      key = '100';
+      $('select').append($("<option>100x100</option>").attr("value",key).attr("id",key));
+      key = '200';
+      $('select').append($("<option>200x200</option>").attr("value",key).attr("id",key));
+      key = '500';
+      $('select').append($("<option>500x500</option>").attr("value",key).attr("id",key));
+
+      $("#100").on('click', function() {
+        $( "#book" ).animate({
+          height: "100px",
+          width: "100px",
+        }, 1000, function() {
+          // Animation complete.
+        });
+      });
+
+      $("#200").on('click', function() {
+        $( "#book" ).animate({
+          height: "200px",
+          width: "200px",
+        }, 1000, function() {
+          // Animation complete.
+        });
+      });
+
+      $("#300").on('click', function() {
+        $( "#book" ).animate({
+          height: "300px",
+          width: "300px",
+        }, 1000, function() {
+          // Animation complete.
+        });
+      });
+
+      image = document.getElementById("image");
+      // val = $(this).val();
+      // val115 = $(this).find('option:selected').value();
+
+      function displayVals ()
+      {
+        val115 = $( "#selectSize" ).val();
+        console.log('val: '+val115);
+        if ($(this).val() == 100) {
+          image.style.width = '100px';
+          image.style.height = '100px';
+        }
+        else if ($(this).val() == 200) {
+          image.style.width = '200px';
+          image.style.height = '200px';
+        }
+        else {
+          image.style.width = '500px';
+          image.style.height = '500px';
+        }
+      }
+      $( "select" ).change( displayVals );
+      //2. Создать список
+      //<ul>
+      //<li>h1</li>
+      //<li>h2</li>
+      //<li>h3</li>
+      //<li>h4</li>
+      //<li>h5</li>
+      //<li>h6</li>
+      //</ul>
+      //При нажатии на каждый элемент <li> устанавливать текст с этом <li> в соответствующий заголовок, который указан в этом элементе.
+
+      ul = document.createElement("ul");
+      parentBody.appendChild(ul);
+      for (var i = 0; i < 5; i++) {
+        $('ul').append($("<li>h"+(i+1)+"</li>"));
+      }
+      $("li").click(function() {
+        str = $(this).text();
+        console.log(str);
+        headerS = document.createElement(str);
+        text = document.createTextNode("Header text "+str);
+        headerS.appendChild(text);
+        parentBody.appendChild(headerS);
+      });
+
+    });
+      </script>
+</head>
+<body>
+  <div id="clickme">
+    Click here
+  </div>
+  <img id="image" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(145).jpg" alt="" width="100" height="123"
+    style="position: relative; left: 10px;">
+</body>
+</html>

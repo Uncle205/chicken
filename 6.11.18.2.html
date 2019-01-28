@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <style media="screen">
+    table, td, div {
+      border: 1px solid #000;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  parentBody = document.body;
+  //table
+  table = document.createElement("table");
+  parentBody.appendChild(table);
+
+  const ROWCOL = 3;
+
+  for (let index = 0; index < ROWCOL; index++) {
+    //tr
+    tr = document.createElement("tr");
+    table.appendChild(tr);
+    //td
+    for (let index = 0; index < ROWCOL; index++) {
+      td = document.createElement("td");
+      tr.appendChild(td);
+      text = randomNum();
+      td.appendChild(text);
+    }
+  }
+
+  function randomNum (max = 65, min = 10) {
+      rand =  Math.floor(Math.random() * (max - min)) + min;
+      return document.createTextNode(rand);
+    }
+
+  $("td").click(function(){
+    preVal = ($(this).prev('td').text()) * 1;
+    nextVal = ($(this).next('td').text()) * 1;
+    thisVal = ($(this).text()) * 1;
+    // nextVal = parseInt($(this).next().TextContent, 10);
+    console.log(preVal);
+    console.log(nextVal);
+    console.log(thisVal);
+    if (preVal != null) {
+      thisVal += preVal;
+      if (nextVal != null) {
+        thisVal += nextVal;
+        $(this).text(thisVal);
+      }
+      else {
+        $(this).text(thisVal);
+      }
+    }
+    else {
+      thisVal += nextVal;
+      $(this).text(thisVal);
+    }
+  });
+
+  div = document.createElement("div");
+  up = document.createTextNode("Up");
+  div.appendChild(up);
+  div.setAttribute("id", "up");
+  parentBody.appendChild(div);
+
+  div = document.createElement("div");
+  down = document.createTextNode("Down");
+  div.appendChild(down);
+  div.setAttribute("id", "down");
+  parentBody.appendChild(div);
+
+  div = document.createElement("div");
+  num = document.createTextNode("Number");
+  div.appendChild(num);
+  div.setAttribute("id", "num");
+  div.setAttribute("value", "0");
+  parentBody.appendChild(div);
+
+  $("#up").click(function(){
+    const value = "value";
+    num = document.getElementById("num");
+    val = num.getAttribute(value) * 1;
+    val++;
+    num.setAttribute(value, val);
+    num.textContent = val;
+  });
+
+   $("#down").click(function(){
+    const value = "value";
+    num = document.getElementById("num");
+    val = num.getAttribute(value) * 1;
+    val--;
+    num.setAttribute(value, val);
+    num.textContent = val;
+  });
+});
+
+</script>
+
+</body>
+</html>

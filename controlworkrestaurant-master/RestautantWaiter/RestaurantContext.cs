@@ -1,0 +1,35 @@
+﻿namespace RestautantWaiter
+{
+    using System;
+    using System.Data.Entity;
+    using System.Linq;
+
+    public class RestaurantContext : DbContext
+    {
+        // Контекст настроен для использования строки подключения "RestaurantContext" из файла конфигурации  
+        // приложения (App.config или Web.config). По умолчанию эта строка подключения указывает на базу данных 
+        // "RestautantWaiter.RestaurantContext" в экземпляре LocalDb. 
+        // 
+        // Если требуется выбрать другую базу данных или поставщик базы данных, измените строку подключения "RestaurantContext" 
+        // в файле конфигурации приложения.
+        public RestaurantContext()
+            : base("name=RestaurantContext")
+        {
+        }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Item>Items { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Table> Tables { get; set; }
+        //public DbSet<String> Comments { get; set; }
+        // Добавьте DbSet для каждого типа сущности, который требуется включить в модель. Дополнительные сведения 
+        // о настройке и использовании модели Code First см. в статье http://go.microsoft.com/fwlink/?LinkId=390109.
+
+        // public virtual DbSet<MyEntity> MyEntities { get; set; }
+    }
+
+    //public class MyEntity
+    //{
+    //    public int Id { get; set; }
+    //    public string Name { get; set; }
+    //}
+}

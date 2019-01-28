@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p id="asd"></p>
+<script type="text/javascript">
+
+/*
+// Задание 1 Создать массив «Список покупок».
+// Каждый элемент массива является объектом,
+// который содержит название продукта,
+// необходимое количество и куплен или нет.
+// Написать несколько функций для работы с таким массивом.
+//   1. Вывод всего списка на экран таким образом, чтобы сначала шли некупленные продукты, а потом – купленные.
+//   2. Добавление покупки в список.
+//   Учтите, что при добавлении покупки с уже существующим в списке продуктом,
+//   необходимо увеличивать количество в существующей покупке, а не добавлять новую.
+//   3. Покупка продукта. Функция принимает название продукта и отмечает его как купленный
+*/
+
+/*
+ totalShoppingList = [['баклажан', '3 KG', 'a'],
+ ['Апельсин',  '5 KG', 'b'],
+ ['батон',  '1 ', 'b'],
+ ['масло', '200 G', 'b' ],
+ ['дыня', '50 KG', 'a']]
+ purchased = [[]];
+
+ totalShoppingList.forEach (function(item, i, array)
+ {
+   array[i].forEach (function(item, i, array){
+     signal = false;
+     if(array[2] == 'b') {
+       // console.log(array[0]);
+       // console.log(item);
+       signal = true;
+     }
+   })
+   if(signal) {
+     // alert('Необходимо купить: '+ item[0] + ' ' + item[1]);
+     console.log('Необходимо купить: '+ item[0] + ' ' + item[1]);
+   }
+ })
+
+ function purchasedProduct (name)
+ {
+   totalShoppingList.forEach (function(item, i, array)
+   {
+     array[i].forEach (function(item, i, array){
+       signal = false;
+       if(array[0] == name || array[2] == 'a') {
+         // console.log(array[0]);
+         // console.log(item);
+         purchased.push(item);
+         signal = true;
+       }
+     })
+     if(signal) {
+       // alert('Купленные продукты: ' + item[0] + ' ' + item[1]);
+       console.log('Купленные продукты: ' + item[0] + ' ' + item[1]);
+     }
+   })
+ }
+
+ purchasedProduct('апельсин');
+
+ purchased.forEach(function(item)
+ {
+   console.log(item);
+   // alert(item);
+ })
+*/
+
+// Создать массив, описывающий чек в магазине.
+// Каждый элемент массива состоит из названия товара,
+// количества и цены за единицу товара.
+// Написать следующие функции.
+// 1. Распечатка чека на экран.
+// 2. Подсчет общей суммы покупки.
+// 3. Получение самой дорогой покупки в чеке.
+// 4. Подсчет средней стоимости одного товара в чеке
+// check = [['баклажан', 2, 300], ['апельсин',  2, 300], ['батон',  1, 70], ['масло', 2, 300], ['Дыня', 20, 50]]
+// mostExpensiveProduct = check[0]
+// mostExpensiveProductSum = mostExpensiveProduct[1] * mostExpensiveProduct[2];
+// commonCount = 0;
+// function printCheck ()
+// {
+//   commonSum = 0;
+//   console.log('Наименование: \t  Кол-во: \t Цена за еденицу товара: \t  Общая цена за товар:  ');
+//   check.forEach (function(item, i, array)
+//   {
+//       sum = (item[1] * item[2]);
+//       if(mostExpensiveProductSum < sum) {
+//         mostExpensiveProduct = item;
+//         mostExpensiveProductSum = mostExpensiveProduct[1] * mostExpensiveProduct[2];
+//       }
+//       commonSum += sum;
+//       commonCount++;
+//       console.log(item[0] +'\t\t\t\t'+ item[1]  +'\t\t\t\t\t'+ item[2]  +'\t\t\t\t\t'+ sum + ' тг');
+//   })
+//   console.log('Общая сумма : \t\t\t\t\t\t\t\t\t\t\t\t' + commonSum + ' тенге');
+//   console.log('Самая дорогая покупка в чеке: ' + mostExpensiveProduct[0] + ' ' + mostExpensiveProductSum + ' тенге');
+//   console.log('Средняя стоимость одного товара в чеке: ' + (commonSum/commonCount));
+// }
+// printCheck();
+
+//Создать массив css-стилей
+//(цвет, размер шрифта, выравнивание, подчеркивание и т. д.).
+//Каждый элемент массива – это объект, состоящий из двух свойств:
+//название стиля и значение стиля.
+//Написать функцию, которая принимает массив стилей и текст,
+//и выводит этот текст с помощью document.write()
+//в тегах <p></p>, добавив в открывающий тег атрибут style со всеми стилями, перечисленными в массиве.
+
+// cascadinStyleSheets = [['color:','green;'], ['font-size:','3em;'], ['text-align:','right;'], ['text-decoration:','line-through;'], ['font-family:','cursive;']]
+// str = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis reprehenderit, molestiae ipsum autem. Repudiandae ut placeat, illo ';
+// function Print (cascadinStyleSheets, text)
+// {
+//   document.write('<style> p { color:green; font-size:3em;text-align:right;text-decoration:line-through;font-family:cursive;} </style>')
+//     asd.innerHTML = text
+// }
+// Print(cascadinStyleSheets, str);
+
+// Создать массив аудиторий академии.
+// Объект-аудитория состоит из названия,
+// количества посадочных мест (от 10 до 20) и названия факультета,
+// для которого она предназначена.
+// Написать несколько функций для работы с ним.
+// 1. Вывод на экран всех аудиторий.
+// 2. Вывод на экран аудиторий для указанного факультета.
+// 3. Вывод на экран только тех аудиторий,
+// которые подходят для переданной группы. Объект-группа состоит из названия,
+// количества студентов и названия факультета.
+// 4. Функция сортировки аудиторий по количеству мест.
+// 5. Функция сортировки аудиторий по названию (по алфа- виту).
+
+/*
+audiences = [["1", 16, "programmers"],["2", 10, "networkers"],["3", 18, "designers"]]
+groups = [["sep-172", 15, "programmers"],["sen-171", 6, "networkers"],["sed-173", 16, "designers"]]
+function Print ()
+{
+  audiences.forEach(function(item){
+    console.log(item);
+  })
+}
+// Print()
+
+function PrintByAudience (faculty)
+{
+  audiences.forEach(function(item){
+    if (item[2] == faculty) {
+      console.log(item);
+    }
+  })
+}
+// PrintByAudience("progammers")
+
+function PrintByAudience (group)
+{
+  audiences.forEach(function(item){
+      if (item[2] == group[2]) {
+        console.log(item);
+      }
+  })
+}
+// PrintByAudience(groups[0])
+
+function CompareByPlacesCount(f,s)
+{
+  if (f[1]==s[1]) return 0;
+  if (f[1]>s[1]) return 1;
+  if (f[1]<s[1]) return -1;
+}
+audiences.sort(CompareByPlacesCount)
+// alert(audiences)
+
+function CompareByName(f,s)
+{
+  if (f[2]==s[2]) return 0;
+  if (f[2]>s[2]) return 1;
+  if (f[2]<s[2]) return -1;
+}
+audiences.sort(CompareByName)
+// alert(audiences)
+*/
+</script>
+</body>
+</html>
